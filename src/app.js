@@ -9,12 +9,21 @@ const session = require('koa-generic-session')
 const redisStore = require('koa-redis')
 
 const { REDIS_CONF } = require('./conf/db')
+const { isProd } = require('./utils/env')
 
+// 路由
 const index = require('./routes/index')
 const users = require('./routes/users')
+const errorViewRouter = require('./routes/view/error')
 
 // error handler
-onerror(app)
+let onerrorConf = {}
+if (isProd) {
+    onerrorConf = {
+        redirect: '/error'
+    }
+}
+onerror(app, onerrorConf)
 
 // middlewares
 app.use(bodyparser({
@@ -22,7 +31,7 @@ app.use(bodyparser({
 }))
 app.use(json())
 app.use(logger()) // 日志打印
-app.use(require('koa-static')(__dirname + '/public'))
+app.use(require('koa-static')(__dirname + '/public')) // 注册静态资源的目录
 
 app.use(views(__dirname + '/views', {
     extension: 'ejs'
@@ -44,17 +53,11 @@ app.use(session({
     })
 }))
 
-// logger 手写的中间件演示
-// app.use(async (ctx, next) => {
-//   const start = new Date()
-//   await next()
-//   const ms = new Date() - start
-//   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
-// })
 
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+app.use(errorViewRouter.routes(), errorViewRouter.allowedMethods())  // 404 路由注册到最后面
 
 // error-handling
 app.on('error', (err, ctx) => {
