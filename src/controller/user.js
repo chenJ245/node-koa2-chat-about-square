@@ -3,13 +3,14 @@
  * @author 阿白
  */
 
-const { getUserInfo, createUser } = require('../services/user')
+const { getUserInfo, createUser, deleteUser } = require('../services/user')
 const { SuccessModel, ErrorModel } = require('../model/ResModel')
 const { 
     registerUserNameNotExistInfo,
     registerUserNameExistInfo,
     registerFailInfo,
-    loginFailInfo
+    loginFailInfo,
+    deleteUserFailInfo
 } = require('../model/Errorinfo')
 const doCrypto = require('../utils/cryp')
 
@@ -39,7 +40,7 @@ async function register({ userName, password, gender }) {
     const userInfo = await getUserInfo(userName)
     if (userInfo) {
         // 用户名已存在
-        return ErrorModel(registerUserNameExistInfo)
+        return new ErrorModel(registerUserNameExistInfo)
     }
 
     // 注册 service
@@ -77,8 +78,23 @@ async function login(ctx, userName, password) {
     return new SuccessModel()
 }
 
+/**
+ * 删除当前用户
+ * @param {string} userName 用户名
+ */
+async function deleteCurUser(userName) {
+    const result = await deleteUser(userName)
+    if (result) {
+        // 成功
+        return new SuccessModel()
+    }
+    // 失败
+    return new ErrorModel(deleteUserFailInfo)
+}
+
 module.exports = {
     isExist,
     register,
-    login
+    login,
+    deleteCurUser
 }
