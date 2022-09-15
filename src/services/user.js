@@ -72,7 +72,7 @@ async function deleteUser(userName) {
  * @param {Object} param1 查询条件 { userName, password }
  */
 async function updateUser(
-    { newPassword, newNickName, newPicture, newCity},
+    { newPassword, newNickName, newPicture, newCity },
     { userName, password }
 ) {
     // 拼接修改内容
@@ -91,16 +91,16 @@ async function updateUser(
     }
 
     // 拼接查询条件
-    const whereOpt = {
+    const whereData = {
         userName
     }
     if (password) {
-        updateData.password = password 
+        whereData.password = password 
     }
 
     // 执行修改
     const result = await User.update(updateData, {
-        where: whereOpt
+        where: whereData
     })
     return result[0] > 0    // 修改的行数
 }
