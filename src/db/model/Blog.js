@@ -18,7 +18,7 @@ const Blog = seq.define('blog', {
         allowNull: false,
         comment: '微博内容'
     },
-    Image: {
+    image: {
         type: STRING,
         comment: '图片地址'
     }
