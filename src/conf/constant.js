@@ -4,5 +4,6 @@
  */
 
 module.exports = {
-    DEFAULT_PICTURE: 'https://c-ssl.duitang.com/uploads/item/202002/09/20200209122704_vdtid.jpg'
+    DEFAULT_PICTURE: 'https://c-ssl.duitang.com/uploads/item/202002/09/20200209122704_vdtid.jpg',
+    PAGE_SIZE: 5
 }
