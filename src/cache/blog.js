@@ -15,7 +15,7 @@ const KEY_PREFIX = 'weibo:square:'
  * @param {number} pageSize pageSize
  */
 async function getSquareCacheList(pageIndex, pageSize) {
-    const key = `${KEY_PREFIX}${pageIndex}${pageSize}`
+    const key = `${KEY_PREFIX}${pageIndex}_${pageSize}`
 
     // 尝试获取缓存
     const cacheResult = await get(key)
