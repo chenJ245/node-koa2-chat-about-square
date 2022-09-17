@@ -3,7 +3,7 @@
  * @author 阿白
  */
 
-const { Blog, User } = require('../db/model/index')
+const { Blog, User, UserRelation } = require('../db/model/index')
 const { formatUser, formatBlog } = require('./_format')
  
 /**
@@ -26,7 +26,6 @@ async function createBlog({ userId, content, image }) {
 async function getBlogListByUser({ userName, pageIndex = 0, pageSize = 10 }) {
     // 拼接查询条件
     const userWhereOpts = {}
- 
     if (userName) {
         userWhereOpts.userName = userName
     }
@@ -35,7 +34,9 @@ async function getBlogListByUser({ userName, pageIndex = 0, pageSize = 10 }) {
     const result = await Blog.findAndCountAll({
         limit: pageSize, // 每页多少条
         offset: pageSize * pageIndex, // 跳过多少条
-        order: [['id', 'desc']],
+        order: [
+            ['id', 'desc']
+        ],
         include: [
             {
                 model: User,
@@ -63,8 +64,46 @@ async function getBlogListByUser({ userName, pageIndex = 0, pageSize = 10 }) {
         blogList
     }
 }
+
+/**
+ * 获取关注者的微博 (首页) 
+ * @param {Object} param0  查询条件 { userId, pageIndex = 0, pageSize = 10}
+ */
+async function getFollowersBlogList({ userId, pageIndex = 0, pageSize = 10}) {
+    const result = await Blog.findAndCountAll({
+        limit: pageSize, // 每页多少条
+        offset: pageIndex * pageSize, // 跳过多少条
+        order: [
+            ['id', 'desc']
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ['userName', 'nickName', 'picture']
+            },
+            {
+                model: UserRelation,
+                attributes: ['userId', 'followerId'],
+                where: { userId }
+            }
+        ]
+    })
+
+    // 数据格式化
+    let blogList = result.rows.map(row => row.dataValues)
+    blogList = formatBlog(blogList)
+    blogList = blogList.map(blogItem => {
+        blogItem.user = formatUser(blogItem.user.dataValues)
+        return blogItem
+    })
+    return {
+        count: result.count,
+        blogList
+    }
+}
  
 module.exports = {
     createBlog,
-    getBlogListByUser
+    getBlogListByUser,
+    getFollowersBlogList
 }
