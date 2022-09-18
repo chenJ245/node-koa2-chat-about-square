@@ -29,4 +29,5 @@ test('获取李四的 @ 列表 (第一页)，应该有刚刚创建的微博', as
     const data = res.body.data
     const blogList = data.blogList
     const isHaveCurBlog = blogList.some(blog => blog.id === BLOG_ID)
+    expect(isHaveCurBlog).toBe(true)
 })
