@@ -1,0 +1,51 @@
+2022-09-19 00:26:38: server error Error
+    at C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\src\routes\view\error.js:10:11
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-compose\index.js:42:32)
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-compose\index.js:42:32)
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-compose\index.js:42:32)
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-compose\index.js:42:32)
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-compose\index.js:42:32)
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-compose\index.js:42:32)
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-compose\index.js:42:32)
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (C:\Users\陈健\Desktop\weiBo\koa2-weibo-code\node_modules\koa-compose\index.js:42:32) {
+  request: {
+    method: 'GET',
+    url: '/get-an-error',
+    header: {
+      host: 'localhost:3000',
+      connection: 'keep-alive',
+      'upgrade-insecure-requests': '1',
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+      'sec-fetch-user': '?1',
+      accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+      'sec-fetch-site': 'none',
+      'sec-fetch-mode': 'navigate',
+      'accept-encoding': 'gzip, deflate, br',
+      'accept-language': 'zh-CN,zh;q=0.9',
+      cookie: 'weibo.sid=_El7lTTbNmp0zuV3bIwmnOVXSug60zTQ; weibo.sid.sig=ZgGJQKYXJyCWJuxYKvKaT7bs5p4'
+    }
+  },
+  response: {
+    status: 404,
+    message: 'Not Found',
+    header: [Object: null prototype] {}
+  },
+  app: { subdomainOffset: 2, proxy: false, env: 'production' },
+  originalUrl: '/get-an-error',
+  req: '<original node req>',
+  res: '<original node res>',
+  socket: '<original node socket>'
+}

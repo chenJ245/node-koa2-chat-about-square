@@ -1,0 +1,38 @@
+2022-09-19 17:36:49: server error Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  headerSent: true
+} {
+  request: {
+    method: 'GET',
+    url: '/1663580199243.%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220420142049.jpg',
+    header: {
+      host: '192.168.163.74:3000',
+      connection: 'keep-alive',
+      'if-modified-since': 'Mon, 19 Sep 2022 09:36:39 GMT',
+      'user-agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x6307062c)',
+      accept: 'image/webp,image/apng,image/*,*/*;q=0.8',
+      cookie: 'weibo.sid=i9N-f1_0-trfFj42-X4-dZhApQTSeIK7; weibo.sid.sig=JZn6KoVr2DEZwEC_Nizdu73dt8Y',
+      referer: 'http://192.168.163.74:3000/',
+      'accept-encoding': 'gzip, deflate',
+      'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'
+    }
+  },
+  response: {
+    status: 200,
+    message: 'OK',
+    header: [Object: null prototype] {
+      'content-length': '3106203',
+      'last-modified': 'Mon, 19 Sep 2022 09:36:39 GMT',
+      'cache-control': 'max-age=0',
+      'content-type': 'image/jpeg'
+    }
+  },
+  app: { subdomainOffset: 2, proxy: false, env: 'production' },
+  originalUrl: '/1663580199243.%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220420142049.jpg',
+  req: '<original node req>',
+  res: '<original node res>',
+  socket: '<original node socket>'
+}
