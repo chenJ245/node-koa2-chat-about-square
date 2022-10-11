@@ -1,5 +1,5 @@
-# koa2-weibo-code
-此项目是个人微博项目
+# 趣味空间
+此项目是个人趣味空间项目
 技术栈： Node + Koa2 + ejs + MySQL + Sequelize + Session + Redis + Jest 测试
 
 项目运行命令：
