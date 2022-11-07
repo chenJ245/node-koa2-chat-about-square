@@ -1,4 +1,4 @@
-# 趣味空间
+# 畅聊广场
 技术栈： Node + Koa2 + ejs + MySQL + Sequelize + Session + Redis + Jest 测试
 
 项目运行命令：
